@@ -94,7 +94,7 @@ const socials = [
     text: "LinkedIn",
     icon: "/icons/linkedin.svg",
     bg: "#05b6f6",
-    link: "https://www.linkedin.com/in/rakesh-srikanth/",
+    link: "https://www.linkedin.com/in/rakeshsrikanth/",
   },
 ];
 
@@ -139,6 +139,7 @@ const WORK_LOCATION = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-5",
+      windowPosition:"top-[15vh] right-20",
       children: [
         {
           id: 1,
@@ -172,6 +173,8 @@ const WORK_LOCATION = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-52 right-80",
+
+      windowPosition:"top-[30vh] right-30",
       children: [
         {
           id: 1,
