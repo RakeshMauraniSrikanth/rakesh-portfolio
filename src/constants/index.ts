@@ -36,7 +36,15 @@ const dockApps = [
 // BLOG POSTS (EMPTY SINCE YOU HAVE NONE)
 // ----------------------------
 
-const blogPosts = [];
+const blogPosts = [
+    {
+        id:1,
+        date: "Nov 26 2025",
+        title: "Register for dev events",
+        link: "https://seminar-events-app.vercel.app/",
+        image: "/images/event1.png",
+    }
+];
 
 // ----------------------------
 // TECH STACK / SKILLS WINDOW
@@ -79,22 +87,8 @@ const socials = [
     text: "Github",
     icon: "/icons/github.svg",
     bg: "#f4656b",
-    link: "https://github.com/rakeshsrikanth",
-  },
-  {
-    id: 2,
-    text: "Portfolio",
-    icon: "/icons/atom.svg",
-    bg: "#4bcb63",
-    link: "https://your-portfolio-url.com",
-  },
-  {
-    id: 3,
-    text: "Twitter/X",
-    icon: "/icons/twitter.svg",
-    bg: "#ff866b",
-    link: "https://x.com/yourprofile",
-  },
+    link: "https://github.com/RakeshMauraniSrikanth",
+  }, 
   {
     id: 4,
     text: "LinkedIn",
@@ -165,7 +159,7 @@ const WORK_LOCATION = {
           icon: "/images/image.png",
           kind: "file",
           fileType: "img",
-          position: "top-10 left-40",
+          position: "top-10 left-80",
           imageUrl: "/images/project-frontend.png",
         },
       ],
