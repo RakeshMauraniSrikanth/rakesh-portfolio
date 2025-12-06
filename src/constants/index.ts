@@ -36,7 +36,15 @@ const dockApps = [
 // BLOG POSTS (EMPTY SINCE YOU HAVE NONE)
 // ----------------------------
 
-const blogPosts = [];
+const blogPosts = [
+    {
+        id:1,
+        date: "Nov 26 2025",
+        title: "Register for dev events",
+        link: "https://seminar-events-app.vercel.app/",
+        image: "/images/event1.png",
+    }
+];
 
 // ----------------------------
 // TECH STACK / SKILLS WINDOW
