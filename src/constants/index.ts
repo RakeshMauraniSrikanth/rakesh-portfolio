@@ -36,15 +36,7 @@ const dockApps = [
 // BLOG POSTS (EMPTY SINCE YOU HAVE NONE)
 // ----------------------------
 
-const blogPosts = [
-    {
-        id:1,
-        date: "Nov 26 2025",
-        title: "Register for dev events",
-        link: "https://seminar-events-app.vercel.app/",
-        image: "/images/event1.png",
-    }
-];
+const blogPosts = [];
 
 // ----------------------------
 // TECH STACK / SKILLS WINDOW
@@ -160,6 +152,7 @@ const WORK_LOCATION = {
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
+          position: "top-10 left-5",
           description: [
             "Led frontend development for multiple B2B financial platforms using React, Next.js, Angular, and TypeScript.",
             "Implemented reusable UI components, authentication flows, SSR, and scalable architecture.",
@@ -172,6 +165,7 @@ const WORK_LOCATION = {
           icon: "/images/image.png",
           kind: "file",
           fileType: "img",
+          position: "top-10 left-40",
           imageUrl: "/images/project-frontend.png",
         },
       ],
