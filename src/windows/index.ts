@@ -1,3 +1,4 @@
+import Contact from "./Contact";
 import Finder from "./Finder";
 import Resume from "./Resume";
 import Safari from "./Safari";
@@ -9,5 +10,6 @@ export {
     Safari,
     Resume,
     Finder,
-    Text
+    Text,
+    Contact
 }
