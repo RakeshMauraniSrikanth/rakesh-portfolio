@@ -1,16 +1,17 @@
 import { locations } from '#constants'
+import { FileSystemNode } from '#types/location'
 import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 
-type Location = (typeof locations)[keyof typeof locations]
+export type Location = (typeof locations)[keyof typeof locations]
 
 type LocationStore = {
-    activeLocation: Location | null
-    setActiveLocation: (location: Location | null) => void
+    activeLocation: FileSystemNode | null
+  setActiveLocation: (loc: FileSystemNode | null) => void
     resetActiveLocation: () => void
 }
 
-const DEFAULT_LOCATION: Location = locations.work
+const DEFAULT_LOCATION: FileSystemNode = locations.work
 
 const useLocationStore = create(
     immer<LocationStore>((set) => ({

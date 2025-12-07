@@ -1,4 +1,4 @@
-import useWindowStore from '#store/window'
+import useWindowStore, { WindowKey } from '#store/window'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { Draggable } from 'gsap/Draggable'
@@ -15,7 +15,7 @@ type WindowWrapperProps = Record<string, unknown>
 
 const WindowWrapper = <P extends WindowWrapperProps>(
   Component: ComponentType<P>,
-  windowKey: string
+  windowKey: WindowKey
 ): FC<P> => {
   const Wrapped: FC<P> = (props) => {
     const { focusWindow, windows } = useWindowStore()

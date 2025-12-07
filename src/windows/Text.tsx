@@ -8,7 +8,7 @@ const Text = () => {
   const data = windows.txtfile?.data
   if (!data) return null
 
-  const { name, image, subtitle, description } = data
+  const { name, imageUrl, subtitle, description } = data
 
   return (
     <>
@@ -18,10 +18,10 @@ const Text = () => {
       </div>
 
       <div className="p-5 space-y-6 bg-white">
-        {image && (
+        {imageUrl && (
           <div>
             <img
-              src={image}
+              src={imageUrl}
               alt={name}
               className="w-full h-auto rounded"
             />
