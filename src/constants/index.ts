@@ -45,6 +45,13 @@ const blogPosts = [
     title: "Register for dev events",
     link: "https://seminar-events-app.vercel.app/",
     image: "/images/event1.png",
+  },
+  {
+    id: 2,
+    date: "Dec 2 2025",
+    title: "POC-IDEA: Incident dashboard powered by AI agent",
+    link: "https://miro.com/app/board/uXjVGfboNPc=/",
+    image: "/images/event2.jpg",
   }
 ];
 
