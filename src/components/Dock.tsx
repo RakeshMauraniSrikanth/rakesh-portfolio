@@ -3,7 +3,7 @@ import { useGSAP } from '@gsap/react';
 import React from 'react'
 import { Tooltip } from 'react-tooltip';
 import gsap from 'gsap';
-import useWindowStore from '#store/window';
+import useWindowStore, { WindowKey } from '#store/window';
 
 
 const Dock = () => {
@@ -62,13 +62,13 @@ const Dock = () => {
     const toggleApp = (app: { id: string; canOpen: boolean }) => {
         if (!app.canOpen) return;
 
-        const window = useWindowStore.getState().windows[app.id];
+        const window = useWindowStore.getState().windows[app.id as WindowKey];
 
         if (!window) return;
         if (window.isOpen) {
-            closeWindow(app.id);
+            closeWindow(app.id as WindowKey);
         } else {
-            openWindow(app.id);
+            openWindow(app.id as WindowKey);
         }
         console.log("getting window", useWindowStore.getState().windows)
     }

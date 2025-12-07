@@ -4,29 +4,29 @@ import { locations } from '#constants'
 import useLocationStore from '#store/location'
 import clsx from 'clsx'
 import WindowWrapper from '#hoc/WindowWrapper'
-import useWindowStore from '#store/window'
-// Import ResumeLocation type
+import useWindowStore, { WindowKey } from '#store/window'
+import { FileSystemNode } from '#types/location'
+import { getWindowKeyForNode } from '#helper/windowKey.ts'
 
+
+type RenderListProps = {
+    name: string
+    items: FileSystemNode[]
+}
 
 const Finder = () => {
     const { activeLocation, setActiveLocation } = useLocationStore()
     const { openWindow } = useWindowStore()
 
-    const openItem = (item: { fileType?: string; kind?: string; href?: string }) => {
-        if (item.fileType === 'pdf') {
-            openWindow('resume')
-        }
+    const openItem = (item: FileSystemNode) => {
+        const windowKey = getWindowKeyForNode(item)
 
-        if (item.kind === 'folder') {
-            setActiveLocation(item)
-        }
+        if (!windowKey) return
 
-        if (["fig", "url"].includes(item.fileType) && item.href)
-            return window.open(item.href, '_blank')
-
-        openWindow(`${item.fileType}${item.kind}`, item)
+        openWindow(windowKey as WindowKey, item)
     }
-    const renderList = ({ name, items }) => (
+
+    const renderList = ({ name, items }: RenderListProps) => (
         <div>
             <h3>{name}</h3>
             <ul>
@@ -59,21 +59,24 @@ const Finder = () => {
                 <div className="sidebar">
                     {renderList({
                         name: 'Favorites',
-                        items: Object.values(locations)
+                        items: Object.values(locations),
                     })}
-                    {renderList({
+
+                    {locations.work.children && renderList({
                         name: 'Work',
-                        items: locations.work.children
+                        items: locations.work.children,
                     })}
                 </div>
 
-                <ul className='content'>
-                    {activeLocation?.children.map((item) => (
-                        <li key={item.id} className={item.position} onClick={() => openItem(item)}>
-
+                <ul className="content">
+                    {activeLocation?.children?.map((item) => (
+                        <li
+                            key={item.id}
+                            className={item.position}
+                            onClick={() => openItem(item)}
+                        >
                             <img src={item.icon} alt={item.name} />
                             <p>{item.name}</p>
-
                         </li>
                     ))}
                 </ul>

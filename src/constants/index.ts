@@ -2,6 +2,8 @@
 // NAV LINKS
 // ----------------------------
 
+import { FileSystemNode } from "#types/location";
+
 const navLinks = [
   { id: 1, name: "Projects", type: "finder" },
   { id: 3, name: "Contact", type: "contact" },
@@ -37,13 +39,13 @@ const dockApps = [
 // ----------------------------
 
 const blogPosts = [
-    {
-        id:1,
-        date: "Nov 26 2025",
-        title: "Register for dev events",
-        link: "https://seminar-events-app.vercel.app/",
-        image: "/images/event1.png",
-    }
+  {
+    id: 1,
+    date: "Nov 26 2025",
+    title: "Register for dev events",
+    link: "https://seminar-events-app.vercel.app/",
+    image: "/images/event1.png",
+  }
 ];
 
 // ----------------------------
@@ -88,7 +90,7 @@ const socials = [
     icon: "/icons/github.svg",
     bg: "#f4656b",
     link: "https://github.com/RakeshMauraniSrikanth",
-  }, 
+  },
   {
     id: 4,
     text: "LinkedIn",
@@ -125,7 +127,7 @@ const gallery = [
 // WORK / PROJECTS — UPDATED TO MATCH YOUR EXPERIENCE
 // ----------------------------
 
-const WORK_LOCATION = {
+const WORK_LOCATION: FileSystemNode = {
   id: 1,
   type: "work",
   name: "Work",
@@ -139,7 +141,7 @@ const WORK_LOCATION = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-5",
-      windowPosition:"top-[15vh] right-20",
+      windowPosition: "top-[15vh] right-20",
       children: [
         {
           id: 1,
@@ -174,7 +176,7 @@ const WORK_LOCATION = {
       kind: "folder",
       position: "top-52 right-80",
 
-      windowPosition:"top-[30vh] right-30",
+      windowPosition: "top-[30vh] right-30",
       children: [
         {
           id: 1,
@@ -182,6 +184,7 @@ const WORK_LOCATION = {
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
+          position: "top-10 left-5",
           description: [
             "Designed and implemented a serverless AWS Batch system integrating MongoDB and PostgreSQL.",
             "Built observability pipelines using CloudWatch, Firehose, and Splunk, reducing reliance on Datadog.",
@@ -198,12 +201,14 @@ const WORK_LOCATION = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-80",
+      windowPosition: "top-[34vh] left-80",
       children: [
         {
           id: 1,
           name: "diagnostics.txt",
           icon: "/images/txt.png",
           fileType: "txt",
+          position: "top-10 left-5",
           kind: "file",
           description: [
             "Developed 8+ diagnostic and service apps for Android/iOS using Xamarin, C#, and MVVM.",
@@ -220,7 +225,7 @@ const WORK_LOCATION = {
 // ABOUT ME — UPDATED FOR YOU
 // ----------------------------
 
-const ABOUT_LOCATION = {
+const ABOUT_LOCATION: FileSystemNode = {
   id: 2,
   type: "about",
   name: "About me",
@@ -234,6 +239,7 @@ const ABOUT_LOCATION = {
       kind: "file",
       fileType: "txt",
       subtitle: "Engineering Leader & Full-Stack Developer",
+      position: "top-10 left-5",
       description: [
         "Hi! I’m Rakesh 👋, an Engineering Leader with strong full-stack, cloud, and DevOps background.",
         "I’ve led teams, delivered complex systems at Telia Finance, Telia, and Volvo, and built platforms used by thousands.",
@@ -247,14 +253,14 @@ const ABOUT_LOCATION = {
 // RESUME
 // ----------------------------
 
-const RESUME_LOCATION = {
+const RESUME_LOCATION: FileSystemNode = {
   id: 3,
   type: "resume",
   name: "Resume",
   icon: "/icons/file.svg",
   kind: "folder",
   children: [
-    { id: 1, name: "Resume.pdf", icon: "/images/pdf.png", kind: "file", fileType: "pdf" },
+    { id: 1, name: "Resume.pdf", icon: "/images/pdf.png", position: "top-10 left-5", kind: "file", fileType: "pdf" },
   ],
 };
 
@@ -262,7 +268,7 @@ const RESUME_LOCATION = {
 // TRASH
 // ----------------------------
 
-const TRASH_LOCATION = {
+const TRASH_LOCATION: FileSystemNode = {
   id: 4,
   type: "trash",
   name: "Trash",
@@ -275,7 +281,7 @@ const TRASH_LOCATION = {
 // EXPORT LOCATIONS + WINDOW CONFIG
 // ----------------------------
 
-export const locations = {
+export const locations: Record<string, FileSystemNode> = {
   work: WORK_LOCATION,
   about: ABOUT_LOCATION,
   resume: RESUME_LOCATION,
