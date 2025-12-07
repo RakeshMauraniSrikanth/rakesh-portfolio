@@ -76,6 +76,7 @@ const Welcome = () => {
     return (
 
         <section id="welcome">
+            <img src="/images/rakesh.jpg" alt="Logo" className="logo w-80 rounded-full mb-8" />
             <p ref={subtitleRef}>
                 {renderText({ text: "Hello, I'm Rakesh Srikanth, Welcome to my", className: 'text-3xl font-georama', baseWeight: 100 })}
 

@@ -7,14 +7,19 @@ import { Draggable } from 'gsap/Draggable'
 
 
 const projects = locations.work?.children ?? []
+type Project = (typeof projects)[number]
+
 const Home = () => {
 
     const {setActiveLocation} = useLocationStore()
 
     const {openWindow} = useWindowStore()
 
-    const handleOpenProjectFinder = (project) =>{
-        setActiveLocation(project)
+    const handleOpenProjectFinder = (project: Project) =>{
+        setActiveLocation({
+            ...project,
+            type: locations.work.type 
+        })
         openWindow("finder")
     }
     useGSAP(() =>{
