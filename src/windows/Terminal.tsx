@@ -8,7 +8,7 @@ const Terminal = () => {
     return (
         <>
             <div id="winow-header">
-                <WindowControls target="terminal"/>
+                <WindowControls target="terminal" />
                 <h2>Tech Stack</h2>
             </div>
 
@@ -36,15 +36,15 @@ const Terminal = () => {
                         </li>
                     ))}
                 </ul>
-                
+
                 <div className='footnote'>
                     <p>
-                        <Check size={20}/>
+                        <Check size={20} />
                         5 of 5 stack loaded successfully (100%)
                     </p>
 
                     <p className='text-black'>
-                        <Flag size={20} fill='black'/>
+                        <Flag size={20} fill='black' />
                         Render time 0.0423s
                     </p>
 
