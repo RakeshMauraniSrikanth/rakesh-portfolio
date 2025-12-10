@@ -1,34 +1,8 @@
-import { INITIAL_Z_INDEX, WINDOW_CONFIG } from '#constants';
-import { FileSystemNode } from '#types/location';
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
-export type WindowKey =
-  | 'finder'
-  | 'contact'
-  | 'resume'
-  | 'safari'
-  | 'photos'
-  | 'terminal'
-  | 'txtfile'
-  | 'imgfile'
-
-type WindowDataMap = {
-  finder: null
-  contact: null
-  resume: FileSystemNode | null
-  safari: null
-  photos: FileSystemNode | null
-  terminal: null
-  txtfile: FileSystemNode | null
-  imgfile: FileSystemNode | null
-}
-type WindowInfo<Data = unknown> = {
-  isOpen: boolean;
-  zIndex: number;
-  data: Data | null;
-};
-
+import { INITIAL_Z_INDEX, WINDOW_CONFIG } from '#constants';
+import { WindowDataMap, WindowInfo, WindowKey } from '#types/window';
 
 type WindowStore = {
   windows: {
@@ -45,20 +19,18 @@ type WindowStore = {
   focusWindow(key: WindowKey): void
 }
 
-
 const useWindowStore = create<WindowStore>()(
   immer((set) => ({
     windows: WINDOW_CONFIG,
     nextZIndex: INITIAL_Z_INDEX + 1,
 
-    openWindow: (windowKey, data = null) =>
+    openWindow: (windowKey, data) =>
       set((state) => {
         const win = state.windows[windowKey];
         if (!win) return;
         win.isOpen = true;
         win.zIndex = state.nextZIndex;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        win.data = (data ?? win.data) as any
+        win.data = (data ?? null) as typeof win.data
         state.nextZIndex++;
       }),
 

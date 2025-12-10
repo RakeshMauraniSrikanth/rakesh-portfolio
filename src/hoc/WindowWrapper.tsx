@@ -1,4 +1,5 @@
-import useWindowStore, { WindowKey } from '#store/window'
+import useWindowStore from '#store/window'
+import { WindowKey } from '#types/window'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { Draggable } from 'gsap/Draggable'

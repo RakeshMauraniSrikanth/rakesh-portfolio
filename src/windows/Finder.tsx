@@ -1,18 +1,17 @@
-import { WindowControls } from '#components'
+import clsx from 'clsx'
 import { Search } from 'lucide-react'
+
+import { WindowControls } from '#components'
 import { locations } from '#constants'
 import useLocationStore from '#store/location'
-import clsx from 'clsx'
 import WindowWrapper from '#hoc/WindowWrapper'
-import useWindowStore, { WindowKey } from '#store/window'
-import { FileSystemNode } from '#types/location'
+import useWindowStore from '#store/window'
+import { FileSystemNode } from '#types/fileSystem'
 import { getWindowKeyForNode } from '#helper/windowKey.ts'
+import { RenderListProps } from '#types/renderList'
 
 
-type RenderListProps = {
-    name: string
-    items: FileSystemNode[]
-}
+// moved to '#types/renderList'
 
 const Finder = () => {
     const { activeLocation, setActiveLocation } = useLocationStore()
@@ -23,7 +22,7 @@ const Finder = () => {
 
         if (!windowKey) return
 
-        openWindow(windowKey as WindowKey, item)
+        openWindow(windowKey, item)
     }
 
     const renderList = ({ name, items }: RenderListProps) => (

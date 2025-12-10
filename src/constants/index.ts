@@ -2,7 +2,7 @@
 // NAV LINKS
 // ----------------------------
 
-import { FileSystemNode } from "#types/location";
+import { FileSystemNode } from "#types/fileSystem";
 
 const navLinks = [
   { id: 1, name: "Projects", type: "finder" },
