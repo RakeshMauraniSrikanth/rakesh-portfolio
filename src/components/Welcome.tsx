@@ -11,7 +11,7 @@ const renderText = ({ text, className, baseWeight = 400 }: { text: string, class
     return [...text].map((char, index) => {
         return (
             <span
-                key={index}
+                key={`${char}-${index}`}
                 style={{ fontVariationSettings: `'wght' ${baseWeight}` }}
                 className={className}
             >
@@ -70,8 +70,8 @@ const Welcome = () => {
     const subtitleRef = useRef<HTMLParagraphElement>(null);
 
     useGSAP(() => {
-        setupTextHover(titleRef.current as HTMLElement, 'title');
-        setupTextHover(subtitleRef.current as HTMLElement, 'subtitle');
+        if (titleRef.current) setupTextHover(titleRef.current, 'title');
+        if (subtitleRef.current) setupTextHover(subtitleRef.current, 'subtitle');
     }, [])
     return (
 

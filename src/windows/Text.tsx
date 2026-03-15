@@ -1,5 +1,5 @@
 import { WindowControls } from '#components'
-import WindowsWrapper from '#hoc/WindowWrapper'
+import WindowWrapper from '#hoc/WindowWrapper'
 import useWindowStore from '#store/window'
 
 const Text = () => {
@@ -37,7 +37,7 @@ const Text = () => {
         {Array.isArray(description) && description.length > 0 && (
           <div className="space-y-3">
             {description.map((para: string, index: number) => (
-              <p key={index}>{para}</p>
+              <p key={para || index}>{para}</p>
             ))}
           </div>
         )}
@@ -46,5 +46,5 @@ const Text = () => {
   )
 }
 
-const TextWindow = WindowsWrapper(Text, 'txtfile')
+const TextWindow = WindowWrapper(Text, 'txtfile')
 export default TextWindow

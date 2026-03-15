@@ -1,29 +1,31 @@
-import { WindowControls } from '#components'
+import clsx from 'clsx'
 import { Search } from 'lucide-react'
+
+import { WindowControls } from '#components'
 import { locations } from '#constants'
 import useLocationStore from '#store/location'
-import clsx from 'clsx'
 import WindowWrapper from '#hoc/WindowWrapper'
-import useWindowStore, { WindowKey } from '#store/window'
-import { FileSystemNode } from '#types/location'
+import useWindowStore from '#store/window'
+import { FileSystemNode } from '#types/fileSystem'
 import { getWindowKeyForNode } from '#helper/windowKey.ts'
+import { RenderListProps } from '#types/renderList'
 
 
-type RenderListProps = {
-    name: string
-    items: FileSystemNode[]
-}
+// moved to '#types/renderList'
 
 const Finder = () => {
     const { activeLocation, setActiveLocation } = useLocationStore()
     const { openWindow } = useWindowStore()
 
     const openItem = (item: FileSystemNode) => {
+        if (item.kind === 'folder') {
+            setActiveLocation(item)
+            return
+        }
+
         const windowKey = getWindowKeyForNode(item)
-
         if (!windowKey) return
-
-        openWindow(windowKey as WindowKey, item)
+        openWindow(windowKey, item)
     }
 
     const renderList = ({ name, items }: RenderListProps) => (
@@ -55,7 +57,7 @@ const Finder = () => {
                 <Search className="icon" size={32} />
             </div>
 
-            <div className="bg-white flex h-full">
+            <div className="bg-white flex flex-1 min-h-0">
                 <div className="sidebar">
                     {renderList({
                         name: 'Favorites',

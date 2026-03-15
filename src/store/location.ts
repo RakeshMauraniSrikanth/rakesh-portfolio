@@ -1,5 +1,5 @@
 import { locations } from '#constants'
-import { FileSystemNode } from '#types/location'
+import { FileSystemNode } from '#types/fileSystem'
 import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 
@@ -7,7 +7,7 @@ export type Location = (typeof locations)[keyof typeof locations]
 
 type LocationStore = {
     activeLocation: FileSystemNode | null
-  setActiveLocation: (loc: FileSystemNode | null) => void
+    setActiveLocation: (loc: FileSystemNode | null) => void
     resetActiveLocation: () => void
 }
 

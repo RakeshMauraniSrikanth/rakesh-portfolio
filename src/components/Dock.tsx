@@ -3,11 +3,12 @@ import { useGSAP } from '@gsap/react';
 import React from 'react'
 import { Tooltip } from 'react-tooltip';
 import gsap from 'gsap';
-import useWindowStore, { WindowKey } from '#store/window';
+import useWindowStore from '#store/window';
+import { WindowKey } from '#types/window';
 
 
 const Dock = () => {
-    const { openWindow, closeWindow } = useWindowStore();
+    const { openWindow, closeWindow, windows } = useWindowStore();
     const dockRef = React.useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
@@ -36,10 +37,9 @@ const Dock = () => {
         }
         const handleMouseMove = (e: MouseEvent) => {
             const { left } = dock.getBoundingClientRect();
-
             animateIcons(e.clientX - left);
-
         }
+
         const resetIcons = () => {
             icons.forEach((icon) => {
                 gsap.to(icon, {
@@ -59,18 +59,23 @@ const Dock = () => {
         }
     }, [])
 
+    const isWindowKey = (id: string): id is WindowKey => {
+        return id in windows;
+    }
+
     const toggleApp = (app: { id: string; canOpen: boolean }) => {
         if (!app.canOpen) return;
 
-        const window = useWindowStore.getState().windows[app.id as WindowKey];
+        if (!isWindowKey(app.id)) return;
 
+        const window = windows[app.id];
         if (!window) return;
+
         if (window.isOpen) {
-            closeWindow(app.id as WindowKey);
+            closeWindow(app.id);
         } else {
-            openWindow(app.id as WindowKey);
+            openWindow(app.id);
         }
-        console.log("getting window", useWindowStore.getState().windows)
     }
     return (
         <section id="dock">
