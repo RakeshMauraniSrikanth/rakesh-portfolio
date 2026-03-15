@@ -7,7 +7,7 @@ import { WindowControls } from '#components';
 const Terminal = () => {
     return (
         <>
-            <div id="winow-header">
+            <div id="window-header">
                 <WindowControls target="terminal" />
                 <h2>Tech Stack</h2>
             </div>
@@ -30,7 +30,7 @@ const Terminal = () => {
                             <h3>{category}</h3>
                             <ul>
                                 {items.map((item, i) => (
-                                    <li key={i}>{item}{i < items.length - 1 ? ',' : ''}</li>
+                                    <li key={item}>{item}{i < items.length - 1 ? ',' : ''}</li>
                                 ))}
                             </ul>
                         </li>

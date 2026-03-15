@@ -18,10 +18,13 @@ const Finder = () => {
     const { openWindow } = useWindowStore()
 
     const openItem = (item: FileSystemNode) => {
+        if (item.kind === 'folder') {
+            setActiveLocation(item)
+            return
+        }
+
         const windowKey = getWindowKeyForNode(item)
-
         if (!windowKey) return
-
         openWindow(windowKey, item)
     }
 
@@ -54,7 +57,7 @@ const Finder = () => {
                 <Search className="icon" size={32} />
             </div>
 
-            <div className="bg-white flex h-full">
+            <div className="bg-white flex flex-1 min-h-0">
                 <div className="sidebar">
                     {renderList({
                         name: 'Favorites',

@@ -147,7 +147,7 @@ const WORK_LOCATION: FileSystemNode = {
       name: "Telia Finance Web Platforms",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-10 left-5",
+      position: "top-8 left-6",
       windowPosition: "top-[15vh] right-20",
       children: [
         {
@@ -181,8 +181,7 @@ const WORK_LOCATION: FileSystemNode = {
       name: "AWS Cloud Batch Pipeline",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-52 right-80",
-
+      position: "top-8 left-52",
       windowPosition: "top-[30vh] right-30",
       children: [
         {
@@ -207,7 +206,7 @@ const WORK_LOCATION: FileSystemNode = {
       name: "Volvo Diagnostic Apps",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-10 left-80",
+      position: "top-44 left-6",
       windowPosition: "top-[34vh] left-80",
       children: [
         {
@@ -221,6 +220,31 @@ const WORK_LOCATION: FileSystemNode = {
             "Developed 8+ diagnostic and service apps for Android/iOS using Xamarin, C#, and MVVM.",
             "Built secure OBD-WiFi communication modules for truck diagnostics.",
             "Applications used globally by Volvo technicians for troubleshooting and maintenance.",
+          ],
+        },
+      ],
+    },
+
+    // ▶ Project 4 – Norlys TP App
+    {
+      id: 8,
+      name: "Norlys TP App",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-44 left-52",
+      windowPosition: "top-[20vh] left-20",
+      children: [
+        {
+          id: 1,
+          name: "norlys-tp.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-10 left-5",
+          description: [
+            "Built a cross-platform enterprise telephony & presence management app for Norlys (Danish energy & telecom) using Kotlin Multiplatform and Compose Multiplatform.",
+            "Implemented call group management, presence/availability status, outbound lines, call logs, and a phone book with OAuth 2.0 PKCE and OTP authentication via Ktor.",
+            "Architected with Clean Architecture (MVVM + Repository), Koin 4.1 DI, Kotlin Coroutines & Flow, and AndroidKeyStore for secure token storage.",
           ],
         },
       ],

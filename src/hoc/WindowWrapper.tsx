@@ -12,7 +12,7 @@ import {
 
 gsap.registerPlugin(Draggable)
 
-type WindowWrapperProps = Record<string, unknown>
+type WindowWrapperProps = object
 
 const WindowWrapper = <P extends WindowWrapperProps>(
   Component: ComponentType<P>,
